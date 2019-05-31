@@ -1,0 +1,203 @@
+/* pages/goods/goods.wxss */
+
+/* page{
+  height: 100%;
+  width: 100%;
+} */
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.img-container {
+  width: 100%;
+  /* padding-top: 20rpx; *//* padding-bottom: 40rpx; */
+  display: flex;
+  justify-content: center;
+  background-color: #f6f6f6;
+}
+
+.goods-infobox {
+  background-color: #f6f6f6;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.goods-price_text {
+  background-color: red;
+  margin-bottom: 20rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0px;
+  align-items: flex-end;
+}
+
+.goods-price {
+  color: white;
+  margin-left: 10px;
+  font-size: 25px;
+  height: 50px;
+}
+
+.goods-img {
+  padding-left: 20rpx;
+  width: 30px;
+  height: 30px;
+}
+
+.goods-price_img {
+  padding-left: 20rpx;
+  width: 50px;
+  height: 50px;
+}
+
+.goods-content {
+  background-color: white;
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+
+.goods-all {
+  /* margin-bottom: 20rpx; */
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  font-size: 21px;
+}
+
+.goods-text {
+  color: gray;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: 8px;
+  /* font-weight: lighter; */
+}
+
+.goods-infobox2 {
+  background-color: white;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+}
+
+.goods-count {
+  /* margin-bottom: 20rpx; */
+  color: black;
+  padding-right: 40rpx;
+  font-size: 18px;
+}
+
+.goods-style {
+  /* margin-bottom: 20rpx; */
+  color: black;
+  padding-right: 40rpx;
+  font-size: 18px;
+}
+
+.goods-name {
+  /* margin-bottom: 20rpx; */
+  color: black;
+  padding-right: 40rpx;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.goods-message {
+  color: gray;
+  /* margin-bottom: 20rpx; */
+  padding-right: 40rpx;
+  font-size: 18px;
+  text-align: right;
+  padding-top: 2px;
+}
+
+.goods-button {
+  background-color: white;
+  color: red;
+  border: 0;
+  width: 50%;
+}
+
+.button-hover {
+  background-color: #efefef;
+}
+
+#message {
+  align-items: flex-start;
+}
+
+.sellerdatabox {
+  display: flex;
+}
+
+.sellerdata {
+  display: flex;
+  flex-direction: column;
+  /* margin-left:20%; */
+}
+
+.sd_left {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.sd_right {
+  margin-left: 12px;
+}
+
+.sellerdata_buttonbox {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellerdata_button {
+  width: 40px;
+  height: 40px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+.sellerdata_button::after {
+  border: none;
+}
+
+#phonecall {
+  background-image: url(https://www.zamonia.cn/statics/icon/phonecall.png);
+}
+
+#addcontact {
+  background-image: url(https://www.zamonia.cn/statics/icon/addcontact.png);
+}
+
+.orderline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+}
+
+.orderinput {
+  width: 56px;
+  text-align: center;
+}

@@ -1,0 +1,94 @@
+<view class='container'>
+  <!-- 商品图片 -->
+  <view class='img-container'>
+    <image src="{{goods.url}}" mode='widthFix' data-url="{{goods.url}}" bindtap="previewPic"></image>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class='goods-infobox'>
+    <!-- 价格 -->
+    <view class="goods-price_text">
+      <image src='/images/goods_price.png' class='goods-price_img'></image>
+      <text class="goods-price">￥<text style='font-size:45px'>{{goods.price}}.</text>{{goods.frac}}</text>
+    </view>
+    <!-- 名称 -->
+    <view class='goods-content'>
+      <view class='goods-all'>
+        <image src='/images/goods_name.png' class='goods-img'></image>
+        <text class='goods-text' decode="{{true}}">商品名称</text>
+      </view>
+      <text class="goods-name">{{goods.gname}}</text>
+    </view>
+    <!-- 库存量 -->
+    <view class='goods-content'>
+      <view class='goods-all'>
+        <image src='/images/goods_count.png' class='goods-img'></image>
+        <text class='goods-text' decode='{{true}}'>库存量</text>
+      </view>
+      <text class='goods-count'>{{goods.count}}{{goods.unit}}</text>
+    </view>
+    <!-- 种类 -->
+    <view class='goods-content'>
+      <view class='goods-all'>
+        <image src='/images/goods_style.png' class='goods-img'></image>
+        <text class='goods-text' decode='{{true}}'>商品种类</text>
+      </view>
+      <text class='goods-style'>{{goods.classify}}</text>
+    </view>
+    <!-- 描述 -->
+    <view class='goods-content' id="message" wx:if="{{goods.message!=''}}">
+      <view class='goods-all'>
+        <image src='/images/goods_note.png' class='goods-img'></image>
+        <text class='goods-text' decode='{{true}}'>商品描述</text>
+      </view>
+      <text class='goods-message'>{{goods.message}}</text>
+    </view>
+    <!-- 卖家 -->
+    <view class='goods-content' bindtap='getSeller'>
+      <view class='goods-all'>
+        <image src='/images/seller.png' class='goods-img'></image>
+        <text class='goods-text' decode='{{true}}'>卖家</text>
+      </view>
+      <text class='goods-style'>{{goods.uname}}</text>
+    </view>
+  </view>
+  <!-- 操作按钮 -->
+  <view class='goods-infobox2'>
+    <button class="goods-button" bindtap="addOrder" hover-class='button-hover'>想买</button>
+    <button class='goods-button' bindtap='onCollect' hover-class='button-hover'>加入收藏</button>
+  </view>
+  <view style='height:42px'></view>
+</view>
+
+<!-- 卖家信息框 -->
+<modal hidden="{{hidden_seller}}" title="卖家信息" confirm-text="确定" cancel-text="取消" bindconfirm="confirm" bindcancel="confirm">
+  <view class="sellerdatabox">
+    <view class="sellerdata sd_left">
+      <text>昵称：</text>
+      <text>联系电话：</text>
+      <text>学校/单位：</text>
+      <text>电子邮箱：</text>
+    </view>
+    <view class="sellerdata sd_right">
+      <text>{{seller.name}}</text>
+      <text>{{seller.phonenumber}}</text>
+      <text>{{seller.school}}</text>
+      <text>{{seller.mail}}</text>
+    </view>
+  </view>
+
+  <view class="sellerdata_buttonbox">
+    <button class="sellerdata_button" bindtap="phoneCall" id="phonecall"></button>
+    <button class="sellerdata_button" bindtap="addContact" id="addcontact"></button>
+  </view>
+
+</modal>
+
+<!-- 订单发送框 -->
+<modal hidden="{{hidden_order}}" title="发送订单" confirm-text="确定" cancel-text="取消" bindconfirm="orderConfirm" bindcancel="orderCancel">
+  <view class="orderline">
+    <view>我想要</view>
+    <input bindinput='getNum' value="1" class="orderinput"></input>
+    <view>{{goods.unit}}</view>
+  </view>
+</modal>

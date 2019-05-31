@@ -1,0 +1,117 @@
+/* pages/personal/personal.wxss */
+
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #f6f6f6;
+}
+.dis_none{
+  color:rgba(0, 0, 0, 0) !important;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 60rpx auto 20px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.userinfo-avatar:after {
+  border: none;
+}
+
+.userinfo-container{
+  
+  width: 100%;
+  justify-content: left;
+  margin-bottom: 30rpx;
+}
+
+#userinfo-nickname{
+  justify-content: flex-start;
+}
+
+.userinfo-username{
+  margin-left: 20rpx;
+  font-size: 40rpx;
+
+}
+
+.userinfo-tr{
+  background: white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top: 20rpx;
+  padding: 0rpx 20rpx 0rpx 40rpx;
+  border-radius: 6rpx;
+  height: 100rpx;
+}
+.userinfo-td{
+  flex-grow: 0;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column; 
+}
+.userinfo-newtr{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.userinfo-left{
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+.userinfo-center{
+  color: grey;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 40rpx
+}
+.userinfo-right{
+  font-size: 30rpx;
+  color: grey;
+  text-align: right;
+  margin-left: 15rpx;
+  margin-right: 5rpx;
+  /* margin-top: 10rpx; */
+}
+/* .userinfo-readonly{
+  font-size: 32rpx;
+  color: grey;
+  text-align: right;
+  margin-left: 15rpx;
+  margin-right: 50rpx;
+  margin-top: 10rpx;
+} */
+
+.button-exit{
+  background-color: white;
+  color: grey;
+  font-size: 30rpx;
+  width: 40%;
+  margin: 60rpx auto 20rpx auto;
+}
+
+.icon_size{
+  width: 30rpx;
+  height: 30rpx;
+}
+.star{
+  width:30px;
+  height:30px;
+}

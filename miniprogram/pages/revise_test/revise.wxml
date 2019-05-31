@@ -1,0 +1,40 @@
+<view class='container'>
+  <form style="width:100%;" bindsubmit='onSubmit' bindreset='onReset'>
+    <view class="input-tr ">
+      <text class='input-td input-title'>商品名称：</text>
+      <input type='text' class='input-td input text_center' placeholder='请填写你的商品名' name="name" value="{{goods.gname}}" cursor-spacing="100" placeholder-class='gray' style='width:500rpx;' maxlength='15'></input>
+    </view>
+
+    <view class="input-tr-between" bindtap='bindChangeClassify'>
+      <text class='input-td input-title'>商品种类：</text>
+      <text class="{{selectCss}}">{{goods.classify}}</text>
+      <image src="/images/go_right_gray.png" style='height:30rpx;width:30rpx;'></image>
+    </view>
+
+    <view class="input-tr-textarea ">
+      <text class='input-td input-title'>商品描述：</text>
+      <textarea placeholder="描述你的商品，30字以内" name="message" value="{{goods.message}}" cursor-spacing="100" class='textarea' placeholder-class='gray' maxlength='30'/>
+    </view>
+
+    <view class="input-tr ">
+      <image src="{{goods.url}}" class='img-plus' bindtap="doRevise" mode="widthFix"></image>
+    </view>
+    
+    <view class="input-tr-between">
+      <text class='input-td input-title'>出售单价：</text>
+      <input type='digit' class='input-td input text_center' placeholder='请填写出售单价' name="price" value="{{goods.price}}" cursor-spacing="100" placeholder-class='gray' maxlength='7'></input>
+      <text class='input-td input-title'>元</text>
+    </view>
+
+    <view class="input-tr">
+      <text class='input-td input-title'>库存数量：</text>
+      <input type='number' class='input-td input text_center' placeholder='库存数量' name="count" value="{{goods.count}}" cursor-spacing="100" placeholder-class='gray' maxlength='5'></input>
+      <text class='input-td input-title'>售卖单位：</text>
+      <input type='text' class='input-td input text_center' placeholder='例如：盒' name="unit" value="{{goods.unit}}" cursor-spacing="100" placeholder-class='gray' maxlength='2'></input>
+      
+    </view>
+   
+    <button form-type='submit' class="confirm-button" >修改</button>
+
+  </form>
+</view>

@@ -1,0 +1,148 @@
+<!-- 顶部收藏夹，我的订单分栏 -->
+<view class="top" wx:if="{{logged}}">
+  <view class="select {{collect?'selected':'notselected'}}" bindtap='onCart'>
+    <text>收藏({{collectList.length}})</text>
+  </view>
+  <view class="select {{collect?'notselected':'selected'}}" bindtap='onBuy'>
+    <text>我想买({{orderList.length}})</text>
+  </view>
+</view>
+<view style='height:40px' wx:if="{{logged}}"></view>
+
+<!-- 收藏 -->
+<checkbox-group bindchange="checkboxChange" wx:if="{{collect&&logged&&(collectList.length!=0)}}">
+  <view class="goods-container">
+    <block wx:for-items="{{collectList}}" wx:key="this">
+      <view class="rg-container">
+        <view class="check">
+          <label>
+            <checkbox value="{{item.index}}" checked='{{all}}' />
+          </label>
+        </view>
+        <view class='goods form_width'>
+          <view class="seller">
+            <view class="sellertitle" catchtap='getSeller' data-openid="{{item.openid}}">
+              <image src="/images/sellertitle.png" style="width:20px;height:20px"></image>
+              <text style='margin-left:5px;margin-right:25px'>{{item.uname}}</text>
+              <image src="/images/go_right_gray.png" style="width:15px;height:15px"></image>
+            </view>
+            <view class="button-container" hover-class="button-hover">
+              <image src='/images/delete.png' class='buttontype' catchtap="onDeleteCollection" data-gid="{{item.gid}}"></image>
+            </view>
+          </view>
+          <view class="picture-info" bindtap="enterGoods" data-link="{{'/pages/goods_test/goods?gid='+item.gid}}">
+            <view class='picture'>
+              <image src='{{item.url}}' class='picture' mode="aspectFill">
+              </image>
+            </view>
+
+            <view class='info'>
+              <view class='info-left'>
+                <text class='goods-name'>{{item.gname}}</text>
+                <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+              </view>
+              <view class='info-right'>
+                <text class='price-type'>￥<text>{{item.price}}</text></text>
+                <text class='count-type'>库存:<text>{{item.count}}{{item.unit}}</text></text>
+                <view class="num">
+                  <text id="num_left" catchtap='dec' data-index="{{item.index}}">-</text>
+                  <text id="num_center" catchtap='inputnum'>{{item.num}}</text>
+                  <text id="num_right" catchtap='add' data-index="{{item.index}}">+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom" wx:if="{{collect}}">
+    <view class="bottom-left">
+      <switch bindchange='selectAll' type='checkbox'></switch>
+      <text>全选</text>
+    </view>
+
+    <view class="bottom-right">
+      <text class="totalprice">合计:<text style='color:red'>￥{{totalprice}}</text></text>
+      <button class="buy" bindtap='onSendOrder'>想买({{totalnum}})</button>
+    </view>
+  </view>
+  <view style='height:60px' wx:if="{{collect}}"></view>
+</checkbox-group>
+
+<!-- 订单 -->
+<view class="goods-container" wx:if="{{!collect&&logged&&(orderList.length!=0)}}">
+  <block wx:for-items="{{orderList}}" wx:key="this">
+    <view class="rg-container">
+      <view class='goods form_width'>
+        <view class="seller">
+          <view class="sellertitle" catchtap='getSeller' data-openid="{{item.openid}}">
+            <image src="/images/sellertitle.png" style="width:20px;height:20px"></image>
+            <text style='margin-left:5px;margin-right:25px'>{{item.uname}}</text>
+            <image src="/images/go_right_gray.png" style="width:15px;height:15px"></image>
+          </view>
+          <view class="button-container accept">
+            <text class="{{item.accept==null?'gray':(item.accept==true?'green':'red')}}">{{item.accept==null?'卖家未处理':(item.accept==true?'卖家已接受':'愿望被拒绝')}}</text>
+          </view>
+        </view>
+        <view class="picture-info" bindtap="enterGoods" data-link="{{'/pages/goods_test/goods?gid='+item.gid}}">
+          <view class='picture'>
+            <image src='{{item.url}}' class='picture' mode="aspectFill">
+            </image>
+          </view>
+
+          <view class='info'>
+            <view class='info-left'>
+              <text class='goods-name'>{{item.gname}}</text>
+              <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+            </view>
+            <view class='info-right'>
+              <text class='price-type'>￥<text>{{item.price}}</text></text>
+              <text class='count-type'>×<text>{{item.num}}{{item.unit}}</text></text>
+            </view>
+          </view>
+        </view>
+        <view class="ago">
+          <text>创建于{{item.ago}}{{item.agounit}}前</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 提示 -->
+<view class="nodata-container" wx:if="{{logged&&((collect&&collectList.length==0)||(!collect&&orderList.length==0))}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text wx:if="{{collect&&collectList.length==0}}">您似乎没有收藏商品呢</text>
+  <text wx:if="{{!collect&&orderList.length==0}}">您似乎没有愿望单呢</text>
+</view>
+<view class="nodata-container" wx:if="{{!logged}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text>您还没有登录</text>
+</view>
+
+<!-- 卖家信息框 -->
+<modal hidden="{{hidden_seller}}" title="卖家信息" confirm-text="确定" cancel-text="取消" bindconfirm="confirm" bindcancel="confirm">
+  <view class="sellerdatabox">
+    <view class="sellerdata sd_left">
+      <text>昵称：</text>
+      <text>联系电话：</text>
+      <text>学校/单位：</text>
+      <text>电子邮箱：</text>
+    </view>
+    <view class="sellerdata sd_right">
+      <text>{{seller.name}}</text>
+      <text>{{seller.phonenumber}}</text>
+      <text>{{seller.school}}</text>
+      <text>{{seller.mail}}</text>
+    </view>
+  </view>
+
+  <view class="sellerdata_buttonbox">
+    <button class="sellerdata_button" bindtap="phoneCall" id="phonecall"></button>
+    <button class="sellerdata_button" bindtap="addContact" id="addcontact"></button>
+  </view>
+
+</modal>

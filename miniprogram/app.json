@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/home_test/home",
+    "pages/personal_test/personal",
+    "pages/goods_test/goods",
+    "pages/sale_test/sale",
+    "pages/plus_test/plus",
+    "pages/revise_test/revise",
+    "pages/collect/collect",
+    "pages/personal_test/more"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2EC4B6",
+    "navigationBarTitleText": "校淘",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#444444",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home_test/home",
+        "text": "主页",
+        "iconPath": "images/home_noact.png",
+        "selectedIconPath": "images/home_act.png"
+      },
+      {
+        "pagePath": "pages/sale_test/sale",
+        "text": "我的商店",
+        "iconPath": "images/sale_noact.png",
+        "selectedIconPath": "images/sale_act.png"
+      },
+      {
+        "pagePath": "pages/plus_test/plus",
+        "text": "发布",
+        "iconPath": "images/plus_noact.png",
+        "selectedIconPath": "images/plus_act.png"
+      },
+      {
+        "pagePath": "pages/collect/collect",
+        "text": "收藏",
+        "iconPath": "images/collect_noact.png",
+        "selectedIconPath": "images/collect_act.png"
+      },
+      {
+        "pagePath": "pages/personal_test/personal",
+        "text": "个人",
+        "iconPath": "images/personal_noact.png",
+        "selectedIconPath": "images/personal_act.png"
+      }
+    ]
+  }
+}

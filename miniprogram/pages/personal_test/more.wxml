@@ -1,0 +1,12 @@
+<view>
+    <text class="title">说明</text>
+    <text class="content">
+      为了避免在线交易可能存在的弊端，同时也为了鼓励同学之间的交流，平台暂不提供线上支付功能，请买卖双方约定线下完成交易。
+    </text>
+
+    <text class="title">开发人员</text>
+    <text class="content">
+      张尔爽 黄伟 王晗 董禹威
+      email：zhangershuang@mail.dlut.edu.cn
+    </text>
+</view>

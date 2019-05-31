@@ -1,0 +1,97 @@
+<view class='container'>
+
+  <!-- 搜索框 -->
+  <view class='fixed-top'>
+    <view class='search-container'>
+        <input class="search-input" type='text' confirm-type='search' placeholder='搜索' bindinput='onGetSearch' value='{{searchValue}}' bindconfirm="onSearch"></input>
+        <image src="/images/spoot.png" class="search-button" bindtap='onSearch'></image>
+    </view>
+  </view>
+    
+
+  <!-- 轮播广告部分 -->
+  <view class="ad-container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" style="height:200px;">
+      <block wx:for-items="{{adUrls}}" wx:key="this">
+        <swiper-item>
+          <!-- <navigator url="https://www.baidu.com" hover-class="navigator-hover"> -->
+            <image src="{{item.url}}" class="slide-image" />
+          <!-- </navigator> -->
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 分类部分 -->
+  <view class="classify-container">
+    <block wx:for-items="{{classify}}" wx:key="{{classify.id}}">
+      <view class="classify-item-container" id="{{item.id}}" bindtap='onGetClassify'>
+        <image src="{{item.url}}" class="classify-img"></image>
+        <text class='classify-text'>{{item.text}}</text>
+        <view class="selected" style="visibility:{{item.selected?'visible':'hidden'}}"></view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 商品展示部分 -->
+  <view class="goods-container">
+
+    <!-- 商品框-左 -->
+    <view class="goods-container-column">
+      <block wx:for-items="{{goodList_left}}" wx:key="{{goodList_left.fileid}}">
+
+        <navigator url="{{'/pages/goods_test/goods?gid='+item.gid}}" style="margin-bottom:20rpx;" hover-class="navigator-hover">
+          <view class="goods-box">
+            <view class="goods-img-container">
+              <image src="{{item.url}}" class="goods-img" mode='widthFix' lazy-load="true"></image>
+            </view>
+            <view class="goods-info">
+              <text class="goods-name">{{item.name}}</text>
+              <text class="goods-count">库存{{item.count}}{{item.unit}} | {{item.classify}}</text>
+              <view class="goods-buy">
+                <text class="goods-price">￥<text style='font-size:60rpx;'>{{item.price}}</text>.{{item.frac}} /{{item.unit}}</text>
+                <image src="/images/collect.png" catchtap='onCollect' class='collection-img' data-gid="{{item.gid}}"></image>
+              </view>
+              <view class="goods-message" wx:if="{{item.message!=''}}">
+                <text style='color:goldenrod'>描述: </text>
+                <text>{{item.message}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+
+    <!-- 商品框-右 -->
+    <view class="goods-container-column">
+      <block wx:for-items="{{goodList_right}}" wx:key="{{goodList_right.fileid}}">
+
+        <navigator url="{{'/pages/goods_test/goods?gid='+item.gid}}" style="margin-bottom:20rpx;" hover-class="navigator-hover">
+          <view class="goods-box">
+            <view class="goods-img-container">
+              <image src="{{item.url}}" class="goods-img" mode='widthFix' lazy-load="true"></image>
+            </view>
+
+            <view class="goods-info">
+              <text class="goods-name">{{item.name}}</text>
+              <text class="goods-count">库存{{item.count}}{{item.unit}} | {{item.classify}}</text>
+              <view class="goods-buy">
+                <text class="goods-price">￥<text style='font-size:60rpx;'>{{item.price}}</text>.{{item.frac}} /{{item.unit}}</text>
+                <image src="/images/collect.png" catchtap='onCollect' class='collection-img' data-gid="{{item.gid}}"></image>
+              </view>
+              <view class="goods-message"  wx:if="{{item.message!=''}}">
+                <text style='color:goldenrod'>描述: </text>
+                <text>{{item.message}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <!-- 触底提示 -->
+  <!-- <view class='bottom' wx:if="{{bottomdisplay}}">
+    <text>没有更多啦~</text>
+  </view> -->
+</view>

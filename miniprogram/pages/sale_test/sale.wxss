@@ -1,0 +1,316 @@
+/* pages/sale/sale.wxss */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  z-index:2;
+}
+
+.order_select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 42px;
+  width: 100%;
+  font-size:15px;
+  border-bottom: solid 1px lightgray;
+  background-color:#f6f6f6;
+z-index:1;
+
+}
+
+.order_title{
+  margin-left: 10px;
+  margin-right: 10px;
+  color:gray;
+  padding:10px 5px 0px 5px;
+}
+.order_choose{
+  font-size: 17px;
+  border-bottom: solid 2px gray;
+}
+
+.order_nochoose{
+  font-size:15px;
+  color: lightgray;
+  border-bottom: solid 2px rgba(0,0,0,0);
+}
+
+.goods {
+  background-color: white;
+  margin: 10px 0px 0px 0px;
+  padding: 10rpx 20rpx;
+}
+
+.goods-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.picture-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20rpx 0 20rpx 10rpx;
+}
+
+.picture {
+  width: 100px;
+  height: 100px;
+}
+
+.info {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  width: 100%;
+  font-size: 34rpx;
+}
+
+.info-left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.info-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-type {
+  text-align: right;
+  font-weight: bold;
+  font-size: 34rpx;
+  color: red;
+}
+
+.count-type {
+  text-align: right;
+  font-size: 28rpx;
+  color: gray;
+}
+
+.message-type {
+  font-size: 28rpx;
+  color: gray;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 32rpx;
+  padding-right: 10rpx;
+}
+
+.delete-revise-mark {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.buttontype {
+  width: 22px;
+  height: 22px;
+}
+
+.button-container {
+  margin-left: 20px;
+}
+
+.button-hover {
+  background-color: #f6f6f6;
+}
+
+.nodata-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40%;
+  font-size: 17px;
+}
+
+.nodata-img {
+  width: 100px;
+  height:82px;
+}
+
+.select {
+  display: flex;
+  height: 40px;
+  font-size: 17px;
+  align-items: center;
+  padding: 0px 10px;
+  width: 85px;
+  justify-content: center;
+}
+
+.notselected {
+  color: #444;
+  border-bottom: solid 3px rgba(0, 0, 0, 0);
+}
+
+.selected {
+  color: red;
+  border-bottom: solid 3px red;
+}
+
+.control {
+  color: red;
+  width: 40px;
+  font-size: 16px;
+  right: 3px;
+  position: absolute;
+}
+
+.goods-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 10px 0px;
+}
+
+.goods_order {
+  border-top: solid 1px lightgray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.message_ball {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.message_text {
+  font-size: 17px;
+  color: red;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.seller {
+  border-bottom: solid 1px lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sellerdatabox {
+  display: flex;
+}
+
+.sellerdata {
+  display: flex;
+  flex-direction: column;
+  /* margin-left:20%; */
+}
+
+.sd_left {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.sd_right {
+  margin-left: 12px;
+}
+
+.sellerdata_buttonbox {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellerdata_button {
+  width: 40px;
+  height: 40px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+.sellerdata_button::after {
+  border: none;
+}
+
+#phonecall {
+  background-image: url(https://www.zamonia.cn/statics/icon/phonecall.png);
+}
+
+#addcontact {
+  background-image: url(https://www.zamonia.cn/statics/icon/addcontact.png);
+}
+
+.sellertitle {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+}
+
+.ago {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: lightgray;
+  font-size: 15px;
+}
+
+.accept {
+  font-size: 17px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.accept_button {
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 10px;
+  width: 90px;
+}
+
+.ago_text {
+  color: gray;
+  font-size: 15px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.order_message {
+  border-radius: 4px;
+  font-size: 15px;
+  color: gray;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.onsale_accept_button {
+  margin-right: 15px;
+}
+
+.accept_icon {
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+}

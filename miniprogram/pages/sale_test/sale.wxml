@@ -1,0 +1,223 @@
+<view class="top" wx:if="{{logged}}">
+  <view class="select {{onsale?'selected':'notselected'}}" bindtap='onSale'>
+    <text>在售({{onsaleList.length}})</text>
+  </view>
+  <view class="select {{onsale?'notselected':'selected'}}" bindtap='onOrder'>
+    <text>有人想买</text>
+  </view>
+</view>
+<view style='height:44px' wx:if="{{logged}}"></view>
+<view class="order_select" wx:if="{{logged&!onsale}}">
+  <view class="order_title {{orderChoose==0?'order_choose':'order_nochoose'}}" bindtap="orderChange" data-choose="0">未处理</view>
+  <view class="order_title {{orderChoose==1?'order_choose':'order_nochoose'}}" bindtap="orderChange" data-choose="1">已接受</view>
+  <view class="order_title {{orderChoose==2?'order_choose':'order_nochoose'}}" bindtap="orderChange" data-choose="2">已拒绝</view>
+</view>
+<view style='height:25px' wx:if="{{logged&!onsale}}"></view>
+
+<!-- 正在出售 -->
+<view class="goods-container" wx:if="{{onsale}}">
+  <block wx:for-items="{{onsaleList}}" wx:key="this" wx:if="{{logged}}">
+    <view class='goods'>
+      <view class="picture-info">
+        <view class='picture'>
+          <image src='{{item.url}}' class='picture' mode="aspectFill">
+          </image>
+        </view>
+
+        <view class='info'>
+          <view class='info-left'>
+            <text class='goods-name'>{{item.name}}</text>
+            <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+          </view>
+          <view class='info-right'>
+            <text class='price-type'>￥<text>{{item.price}}/{{item.unit}}</text></text>
+            <text class='count-type'>库存:<text>{{item.count}}{{item.unit}}</text></text>
+            <view class='delete-revise-mark'>
+              <view class="button-container" hover-class="button-hover">
+                <image src='/images/change.png' class='buttontype' bindtap="onChangeOrder" data-gid='{{item.gid}}'></image>
+              </view>
+              <view class="button-container" hover-class="button-hover">
+                <image src='/images/delete.png' class='buttontype' bindtap="onDeleteOrder" data-gid='{{item.gid}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='goods_order' catchtap='showGoodsOrder' data-index="{{item.index}}">
+        <view class="message_ball" wx:if="{{item.order.length>0}}">{{item.order.length}}</view>
+        <text class="message_text">未处理愿望</text>
+        <image src="/images/go_down.png" style='width:17px;height:17px;' animation="{{item.animation}}"></image>
+      </view>
+      <block wx:if="{{item.show}}">
+        <view wx:for-items="{{item.order}}" wx:key="this" style='display:flex;margin:15px 5px;border-bottom:solid 1px lightgray;justify-content:space-between;padding:0px 5px 2px 0px;'>
+          <view style="display:flex;">
+            <text class="order_message">用户:{{item.uname}}</text>
+            <text class="order_message">想要{{item.num}}{{item.unit}}</text>
+            <text class="ago_text">{{item.ago}}{{item.agounit}}前</text>
+          </view>
+
+          <view style="display:flex;">
+            <image src="/images/accept.png" class="accept_icon" bindtap='acceptOrder' data-oid="{{item.oid}}"></image>
+            <image src="/images/reject.png" class="accept_icon" bindtap='rejectOrder' data-oid="{{item.oid}}"></image>
+          </view>
+
+        </view>
+      </block>
+
+    </view>
+  </block>
+</view>
+
+<!-- 订单_未处理 -->
+<view class="goods-container" wx:if="{{!onsale&&(orderChoose==0)}}">
+  <block wx:for-items="{{ordernoaccList}}" wx:key="this">
+    <view class="rg-container">
+      <view class='goods form_width'>
+        <view class="picture-info">
+          <view class='picture'>
+            <image src='{{item.url}}' class='picture' mode="aspectFill">
+            </image>
+          </view>
+
+          <view class='info'>
+            <view class='info-left'>
+              <text class='goods-name'>{{item.gname}}</text>
+              <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+            </view>
+            <view class='info-right'>
+              <text class='price-type'>￥<text>{{item.price}}</text></text>
+              <text class='count-type'>×<text>{{item.num}}{{item.unit}}</text></text>
+            </view>
+          </view>
+        </view>
+        <view class="ago">
+          <view style='display:flex;'>
+            <button bindtap='acceptOrder' data-oid="{{item.oid}}" class="accept_button">接受</button>
+            <button bindtap='rejectOrder' data-oid="{{item.oid}}" class="accept_button">拒绝</button>
+          </view>
+          <text>创建于{{item.ago}}{{item.agounit}}前</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 订单_已接受 -->
+<view class="goods-container" wx:if="{{!onsale&&(orderChoose==1)}}">
+  <block wx:for-items="{{orderaccList}}" wx:key="this">
+    <view class="rg-container">
+      <view class='goods form_width'>
+        <view class="seller">
+          <view class="sellertitle" catchtap='getBuyer' data-openid="{{item.openid}}">
+            <image src="/images/buyer.png" style="width:20px;height:20px"></image>
+            <text style='margin-left:5px;margin-right:25px'>{{item.bname}}</text>
+            <image src="/images/go_right_gray.png" style="width:15px;height:15px"></image>
+          </view>
+        </view>
+        <view class="picture-info">
+          <view class='picture'>
+            <image src='{{item.url}}' class='picture' mode="aspectFill">
+            </image>
+          </view>
+
+          <view class='info'>
+            <view class='info-left'>
+              <text class='goods-name'>{{item.gname}}</text>
+              <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+            </view>
+            <view class='info-right'>
+              <text class='price-type'>￥<text>{{item.price}}</text></text>
+              <text class='count-type'>×<text>{{item.num}}{{item.unit}}</text></text>
+            </view>
+          </view>
+        </view>
+        <view class="ago">
+          <view style='display:flex;'>
+          </view>
+          <text>创建于{{item.ago}}{{item.agounit}}前</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 订单_已拒绝 -->
+<view class="goods-container" wx:if="{{!onsale&&(orderChoose==2)}}">
+  <block wx:for-items="{{orderrejList}}" wx:key="this">
+    <view class="rg-container">
+      <view class='goods form_width'>
+        <view class="picture-info">
+          <view class='picture'>
+            <image src='{{item.url}}' class='picture' mode="aspectFill">
+            </image>
+          </view>
+
+          <view class='info'>
+            <view class='info-left'>
+              <text class='goods-name'>{{item.gname}}</text>
+              <text class='message-type' wx:if="{{item.message!=''}}">{{item.message}}</text>
+            </view>
+            <view class='info-right'>
+              <text class='price-type'>￥<text>{{item.price}}</text></text>
+              <text class='count-type'>×<text>{{item.num}}{{item.unit}}</text></text>
+            </view>
+          </view>
+        </view>
+        <view class="ago">
+          <view style='display:flex;'>
+            <button bindtap='acceptOrder' data-oid="{{item.oid}}" class="accept_button">接受</button>
+          </view>
+          <text>创建于{{item.ago}}{{item.agounit}}前</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 提示 -->
+<view class="nodata-container" wx:if="{{logged&&(onsale&&onsaleList.length==0)}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text wx:if="{{onsale&&goodList_onsale.length==0}}">似乎没有正在出售的商品哟~</text>
+</view>
+<view class="nodata-container" wx:if="{{logged&&(!onsale&&orderChoose==0&&ordernoaccList.length==0)}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text>没有未处理的愿望哟~</text>
+</view>
+<view class="nodata-container" wx:if="{{logged&&(!onsale&&orderChoose==1&&orderaccList.length==0)}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+   <text>没有已接受的愿望哟~</text>
+</view>
+<view class="nodata-container" wx:if="{{logged&&(!onsale&&orderChoose==2&&orderrejList.length==0)}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text>没有已拒绝的愿望哟~</text>
+</view>
+<view class="nodata-container" wx:if="{{!logged}}">
+  <image src="/images/nodata.png" class='nodata-img' mode='widthFix'></image>
+  <text>您还没有登录</text>
+</view>
+
+
+<!-- 买家信息 -->
+<modal hidden="{{hidden_seller}}" title="买家信息" confirm-text="确定" cancel-text="取消" bindconfirm="confirm" bindcancel="confirm">
+  <view class="sellerdatabox">
+    <view class="sellerdata sd_left">
+      <text>收货人：</text>
+      <text>联系电话：</text>
+      <text>邮政编码：</text>
+      <text>收货地址：</text>
+    </view>
+    <view class="sellerdata sd_right">
+      <text>{{buyer.userName}}</text>
+      <text>{{buyer.telNumber}}</text>
+      <text>{{buyer.postalCode}}</text>
+      <text>{{buyer.provinceName}} {{buyer.cityName}} {{buyer.countyName}} {{buyer.detailInfo}}</text>
+    </view>
+  </view>
+
+  <view class="sellerdata_buttonbox">
+    <button class="sellerdata_button" bindtap="phoneCall" id="phonecall"></button>
+    <button class="sellerdata_button" bindtap="addContact" id="addcontact"></button>
+  </view>
+
+</modal>

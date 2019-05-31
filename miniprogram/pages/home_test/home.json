@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "主页",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100,
+  "usingComponents": {}
+}

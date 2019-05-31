@@ -1,0 +1,333 @@
+/* pages/sale/sale.wxss */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.goods {
+  background-color: white;
+  margin: 10px 0px 0px 0px;
+  padding: 10rpx 20rpx;
+}
+
+.form_width {
+  width: 100%;
+}
+
+.goods-name {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.picture-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20rpx 0 20rpx 10rpx;
+}
+
+.picture {
+  width: 100px;
+  height: 100px;
+}
+
+.info {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  width: 100%;
+  font-size: 34rpx;
+}
+
+.info-left {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.info-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-type {
+  text-align: right;
+  font-weight: bold;
+  font-size: 34rpx;
+  color: red;
+}
+
+.count-type {
+  text-align: right;
+  font-size: 13px;
+  color: gray;
+}
+
+.message-type {
+  font-size: 13px;
+  color: gray;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 32rpx;
+  padding-right: 10rpx;
+}
+
+.delete-revise-mark {
+  border-top: solid 1px lightgray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20rpx 20rpx 0 0;
+}
+
+.buttontype {
+  width: 21px;
+  height: 21px;
+  /* margin: 5px; */
+}
+
+.button-container {
+  /* margin-left: 38px; *//* margin-top:30px; */
+  margin-right: 5px;
+}
+
+.button-hover {
+  background-color: #f6f6f6;
+}
+
+.nodata-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40%;
+  font-size: 17px;
+}
+
+.nodata-img {
+  width: 100px;
+}
+
+.select {
+  display: flex;
+  height: 40px;
+  font-size: 17px;
+  align-items: center;
+  padding: 0px 10px;
+  width: 85px;
+  justify-content: center;
+}
+
+.notselected {
+  color: #444;
+  border-bottom: solid 3px rgba(0, 0, 0, 0);
+}
+
+.selected {
+  color: red;
+  border-bottom: solid 3px red;
+}
+
+.control {
+  color: red;
+  width: 40px;
+  font-size: 16px;
+  right: 3px;
+  position: absolute;
+}
+
+.goods-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0px 10px 0px;
+}
+
+.rg-container {
+  display: flex;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  height: 60px;
+}
+
+.bottom-left {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.bottom-right {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.buy {
+  border: solid 0px;
+  border-radius: 16px;
+  height: 32px;
+  /* width: 75px; */
+  color: white;
+  background-color: #2EC4B6;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.buy::after{
+  border: none;
+}
+
+.totalprice {
+  font-size: 16px;
+  margin-right: 7px;
+}
+
+.num {
+  display: flex;
+  color: lightgray;
+  font-size: 15px;
+  margin-top: 26px;
+}
+
+#num_left {
+  border: solid 1px lightgray;
+  text-align: center;
+  height: 20px;
+  width: 17px;
+  line-height: 17px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+#num_center {
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  text-align: center;
+  height: 20px;
+  width: 30px;
+  line-height: 19px;
+}
+
+#num_right {
+  border: solid 1px lightgray;
+  height: 20px;
+  text-align: center;
+  width: 17px;
+  line-height: 17px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.seller {
+  border-bottom: solid 1px lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sellerdatabox {
+  display: flex;
+}
+
+.sellerdata {
+  display: flex;
+  flex-direction: column;
+  /* margin-left:20%; */
+}
+
+.sd_left {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.sd_right {
+  margin-left: 12px;
+}
+
+.sellerdata_buttonbox {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellerdata_button {
+  width: 40px;
+  height: 40px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+.sellerdata_button::after {
+  border: none;
+}
+
+#phonecall {
+  background-image: url(https://www.zamonia.cn/statics/icon/phonecall.png);
+}
+
+#addcontact {
+  background-image: url(https://www.zamonia.cn/statics/icon/addcontact.png);
+}
+
+.sellertitle {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+}
+
+.ago{
+  display: flex;
+  justify-content: flex-end;
+  color: lightgray;
+  font-size: 15px;
+}
+
+.accept{
+  font-size: 17px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.gray{
+  color: gray;
+}
+.green{
+  color:green;
+}
+.red{
+  color:red;
+}

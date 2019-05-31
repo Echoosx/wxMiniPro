@@ -1,0 +1,29 @@
+/* pages/personal/more.wxss */
+
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #f6f6f6;
+}
+
+.title {
+  font-size: 50rpx;
+  background: white;
+  display: flex;
+  padding: 30rpx 30rpx 30rpx 30rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.content {
+  font-size: 33rpx;
+  background: white;
+  padding: 10rpx 30rpx 50rpx 30rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+  margin-left: 10px;
+  margin-right: 10px;
+}

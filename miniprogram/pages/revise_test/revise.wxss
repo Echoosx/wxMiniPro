@@ -1,0 +1,97 @@
+/* pages/plus/plus.wxss */
+
+Page {
+  background-color: #f6f6f6;
+  padding-bottom: 40rpx;
+}
+
+.img-plus {
+  margin: 20rpx 0 20rpx 0;
+  width: 30%;
+}
+
+.input-tr {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 16px;
+  align-items: center;
+  padding-right: 16px;
+  background-color: white;
+  margin-bottom: 13px;
+  /* margin-top: 20rpx;
+  margin-bottom: 20rpx; */
+}
+
+.input-tr-textarea {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: white;
+}
+
+.input-tr-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 22px;
+  background-color: white;
+  margin-bottom: 13px;
+}
+/* 
+.border {
+  border-bottom: solid 2px lightgray;
+} */
+
+.input-td {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.input-title {
+  font-size: 35rpx;
+  white-space: nowrap;
+}
+
+.input {
+  font-size: 35rpx;
+  /* text-align: center; */
+}
+
+.textarea {
+  height: 200rpx;
+  font-size: 35rpx;
+  margin-top: 24rpx;
+}
+
+.classify {
+  line-height: 30px;
+  font-size: 35rpx;
+}
+
+/* .input-button{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+} */
+
+.confirm-button {
+  margin: 40rpx;
+  background-color: #2ec4b6;
+  color: white;
+}
+
+.gray{
+  color: lightgray;
+  font-size: 35rpx;
+}
+
+.black {
+  color: black;
+  font-size: 35rpx;
+}
+
+.text_center{
+  text-align: center;
+}

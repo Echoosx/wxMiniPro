@@ -1,0 +1,77 @@
+<!--personal.wxml-->
+<view class="userinfo-container">
+  <!-- 用户头像 -->
+  <view class="userinfo-center" id="userinfo-nickname">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar userinfo-td" style="background-image: url({{avatarUrl}})"></button>
+  </view>
+  <view class="userinfo-center">
+    <text class="userinfo-username">{{message}}</text>
+
+  </view>
+
+  <!-- 昵称 -->
+  <view class="userinfo-tr" bindtap="setName">
+    <text class="userinfo-td userinfo-left">昵称</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{(!userinfo.name||userinfo.name=='')?'未填写':userinfo.name}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <!-- 性别 -->
+  <view class="userinfo-tr" bindtap="setGender">
+    <text class="userinfo-td userinfo-left">性别</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{(!userinfo.sex||userinfo.sex=='')?'未填写':userinfo.sex}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <view class="userinfo-tr" bindtap="setSchool">
+    <text class="userinfo-td userinfo-left">学校/单位</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{(!userinfo.school||userinfo.school=='')?'未填写':userinfo.school}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="userinfo-tr" bindtap="setPhonenumber">
+    <text class="userinfo-td userinfo-left">联系电话</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{(!userinfo.phonenumber||userinfo.phonenumber=='')?'未填写':userinfo.phonenumber}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <!-- 电子邮箱 -->
+  <view class="userinfo-tr" bindtap="setEmail">
+    <text class="userinfo-td userinfo-left">电子邮箱</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{(!userinfo.mail||userinfo.mail=='')?'未填写':userinfo.mail}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <!-- 收货地址 -->
+  <view class="userinfo-tr" bindtap="setAddress">
+    <text class="userinfo-td userinfo-left">收货地址</text>
+    <view class="userinfo-newtr">
+      <text class="userinfo-td userinfo-right">{{!userinfo.userName?'未设置':userinfo.userName}} {{!userinfo.telNumber?'':userinfo.telNumber}}</text>
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+
+  <!-- 更多 -->
+  <view class="userinfo-tr" bindtap="goMore">
+    <text class="userinfo-td userinfo-left">更多</text>
+    <view class="userinfo-newtr">
+      <image class="userinfo-td userinfo-right icon_size" src="../../images/go_right.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 修改框 -->
+<modal hidden="{{hiddenmodalput}}" title="{{wintitle}}" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  <input type='text' placeholder="{{placeholder}}" value="{{wininfo}}" bindinput="onInput" style="color:gray" />
+</modal>
